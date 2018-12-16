@@ -1,26 +1,20 @@
 import React, {Component} from 'react';
+import Text from './Text';
 
 
 class Title extends Component{
-    
-//    HowToPlay = () => {
-//        console.log('hi')
-//        return (
-//            <div>Hello how are u</div>
-//        )
-//    }
-state = {
-    message: ''
-}
 
-thing = (state) => {
-    console.log(state)
-    this.setState({message: 'hello'})
-    console.log(state)
-    return state
-}
+    constructor () {
+        super();
+        this.state = {printText:false};
+     } 
+    
+   howToPlay = () => {
+    this.setState({printText:true});
+   }
 
    render () {
+    
     return (
         <div className="title-container">
             <div>    
@@ -31,11 +25,10 @@ thing = (state) => {
                     <p className="title-p">From the makers of Heads Up!</p>
                 </div>
                 <div className="title-button-container">
-             
-                    <button type="submit" value={this.state.term} className="title-button1" onClick={this.thing} >How To Play</button>
-                    <button type="submit" className="title-button2">Play</button>
-                    {/* <this.HowToPlay /> */}
+                    <button className="title-button1" onClick={this.howToPlay} >How To Play</button>
+                    <button className="title-button2">Play</button>
                 </div>
+                <div className="">{this.state.printText && <Text></Text> }</div>
             </div>
         </div>
     )
